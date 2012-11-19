@@ -99,6 +99,7 @@ namespace Harvey
 
     public static class ChannelExtensions
     {
+        // http://lostechies.com/derekgreer/2012/05/29/rabbitmq-for-windows-headers-exchanges/
         public static void StartConsume(this IModel channel, string queueName, Action<IModel, DefaultBasicConsumer, BasicDeliverEventArgs> callback)
         {
             QueueingBasicConsumer consumer = new QueueingBasicConsumer(channel);
@@ -110,7 +111,6 @@ namespace Harvey
                 {
                     var eventArgs = (BasicDeliverEventArgs)consumer.Queue.Dequeue();
                     callback(channel, consumer, eventArgs);
-                    //new Thread(() => callback(channel, consumer, eventArgs)).Start();
                 }
                 catch (EndOfStreamException)
                 {
