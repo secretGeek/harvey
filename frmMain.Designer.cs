@@ -60,6 +60,7 @@
             this.btnClear.TabIndex = 7;
             this.btnClear.Text = "x";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // txtConversation
             // 
@@ -81,6 +82,7 @@
             this.btnSend.TabIndex = 1;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
             // label1
             // 
@@ -124,6 +126,7 @@
             // 
             // frmMain
             // 
+            this.AcceptButton = this.btnSend;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
@@ -133,6 +136,9 @@
             this.Controls.Add(this.panel1);
             this.Name = "frmMain";
             this.Text = "Harvey";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
+            this.Load += new System.EventHandler(this.frmMain_Load);
+            this.ResizeEnd += new System.EventHandler(this.frmMain_ResizeEnd);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);

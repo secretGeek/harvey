@@ -109,7 +109,8 @@ namespace Harvey
                 try
                 {
                     var eventArgs = (BasicDeliverEventArgs)consumer.Queue.Dequeue();
-                    new Thread(() => callback(channel, consumer, eventArgs)).Start();
+                    callback(channel, consumer, eventArgs);
+                    //new Thread(() => callback(channel, consumer, eventArgs)).Start();
                 }
                 catch (EndOfStreamException)
                 {
